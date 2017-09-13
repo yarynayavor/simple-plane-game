@@ -31,15 +31,15 @@ div#plane {
 }
 
 .fire{
-	width: 30px;
-	height: 30px;
-	background: url("../img/fire.png") no-repeat;
+	width: 40px;
+	height: 40px;
+	background: url("../img/fire.gif") no-repeat;
     background-size: contain;
 	border-radius: 100%;
 	position: relative;
-	top:-27px;
-	left:35px;
-	transition: transform 5.2s ease-in-out;
+	top:-38px;
+	left:34px;
+	transition: transform 1.2s ease-in-out;
 }
 
 /*******************************/

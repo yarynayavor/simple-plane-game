@@ -1,3 +1,6 @@
+/*
+* key codes from http://keycode.info/
+*/
 KEYCODE_LEFT = 37;
 KEYCODE_RIGHT = 39;
 KEYCODE_UP = 38;
@@ -9,7 +12,12 @@ $plane = document.getElementById('plane');
 
 speed=15;
 
-document.body.onkeydown = function (e) {
+/*
+* main function of moving plane and fire show
+*/
+
+$('.button').click(function (e) {
+    document.body.onkeydown = function (e) {
   
   if (e.keyCode == KEYCODE_LEFT) {
     if((parseInt($plane.style.left || '600'))>0) {
@@ -22,7 +30,7 @@ document.body.onkeydown = function (e) {
   }
 
   else if (e.keyCode == KEYCODE_RIGHT) {
-    if((parseInt($plane.style.left || '600'))<(window.outerWidth-145)) {
+    if((parseInt($plane.style.left || '600'))<(window.outerWidth-165)) {
       $plane.style.left = (parseInt($plane.style.left || '600') + 1*speed) + 'px';
     }
     $plane.classList.add('turn-right');
@@ -42,7 +50,7 @@ document.body.onkeydown = function (e) {
   }
 
   else if (e.keyCode == KEYCODE_DOWN)  {
-    if((parseInt($plane.style.top || '100')) < (window.outerHeight-225)) {
+    if((parseInt($plane.style.top || '100')) < (window.outerHeight-245)) {
       $plane.style.top = (parseInt($plane.style.top || '100') + 1*speed) + 'px';
     }
     $plane.classList.add('turn-bottom');
@@ -62,12 +70,15 @@ document.body.onkeydown = function (e) {
     }
   }
 }
+});
+
+/*
+* when key up, remove fire show
+*/
 
 document.body.onkeyup = function (e) { 
 
   if ((e.keyCode == KEYCODE_SPACE) || (e.keyCode == KEYCODE_ENTER)) {
-    $fire.remove();
-    $fire.style.top=20+'px';
     fireCl=document.getElementsByClassName('fire');
     for (var i = 0; i < fireCl.length; i++) {
       fireCl[i].remove();
@@ -75,6 +86,9 @@ document.body.onkeyup = function (e) {
   }
 }
 
+/*
+* jquery function which shows pop-up div before game started
+*/
 
 $(function() {
   $('.pop-up').hide();
